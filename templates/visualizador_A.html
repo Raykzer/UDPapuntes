@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Visualizador</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/visualizador.css') }}">
+</head>
+<body>
+
+    <div class="header">
+        <a href="{{ url_for('review') }}">
+            <img src="{{ url_for('static', filename='icons/Logo.png') }}" alt="UDP" style="width: auto; height: 50px; display: inline-block;">
+        </a>
+
+        <!-- Agregar botón de logout a la derecha -->
+        <a href='/logout' class="logout-btn">
+            <img src="{{ url_for('static', filename='icons/logout.svg') }}" alt="Logout" class="logout-icon">
+        </a>
+    </div>
+  
+</div>
+
+
+<div class="content">
+    <!-- Preview of PDF -->
+    <div class="pdf-preview">
+        <img src="data:image/png;base64,{{ book['imagen_src'] }}" alt="{{ book['titulo'] }}">
+    </div>
+    
+    <!-- Book Information -->
+    <div class="book-info">
+        <h2>{{ book['titulo'] }}</h2>
+        <p>Autor: {{ book['autor'] }}</p>
+        <div class="description">
+            <h3>Descripción:</h3>
+            <p>{{ book['descripcion'] }}</p>
+        </div>
+        <div class="buttons">
+            <a href="{{ url_for('view_online', titulo=book['titulo']) }}" class="button">Ver en línea</a>
+            <a href="{{ url_for('download', titulo=book['titulo']) }}" class="button">Descargar</a>
+        </div>
+        <div class="like-dislike-buttons">
+            <a href="#" class="like-button" disabled>
+                <img src="{{ url_for('static', filename='icons/like.svg') }}" alt="Like"> {{ likes_count or 0 }}
+            </a>
+            <a href="#" class="dislike-button" disabled>
+                <img src="{{ url_for('static', filename='icons/dislike.svg') }}" alt="Dislike"> {{ dislikes_count or 0 }}
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Back button -->
+<div class="back-button-container">
+    <button class="back-button" onclick="goBack()">
+        <img src="{{ url_for('static', filename='icons/back.svg') }}" alt="Back">
+        Volver 
+    </button>
+</div>
+
+<script>
+    // Función para retroceder a la página anterior
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+</body>
+</html>

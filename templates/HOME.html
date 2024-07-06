@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>UDPapuntes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+
+  <script>
+    function openModal() {
+        document.getElementById('uploadModal').style.display = 'block';
+    }
+    function closeModal() {
+        document.getElementById('uploadModal').style.display = 'none';
+    }
+    window.onclick = function(event) {
+        let modal = document.getElementById('uploadModal');
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+</script>
+
+</head>
+
+<body>
+
+  <div class="header">
+    <a href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='icons/Logo.png') }}" alt="UDP" style="width: auto; height: 50px; display: inline-block;">
+    </a>
+    <div class="menu-items-container">
+        <a href="{{ url_for('apuntes') }}" class="menu-item-text apuntes" style="text-decoration: none;">Apuntes</a>
+        <a href="{{ url_for('lecturas') }}" class="menu-item-text lecturas" style="text-decoration: none;">Lecturas</a>
+        <a href="{{ url_for('materias') }}" class="menu-item-text materias" style="text-decoration: none;">Materias</a>
+    </div>
+    <!-- Agregar botón de logout a la derecha -->
+    <a href='/logout' class="logout-btn">
+        <img src="{{ url_for('static', filename='icons/logout.svg') }}" alt="Logout" class="logout-icon">
+    </a>
+</div>
+
+  <div class="search-bar-container">
+    <form action="{{ url_for('buscar') }}" method="POST">
+        <div class="search-bar-title">¿Qué estás buscando?</div>
+        <input type="text" class="search-bar" name="termino_busqueda" placeholder="Buscar...">
+    </form>
+</div>
+
+  <div class="image-buttons-container">
+    <a href="{{ url_for('apuntes') }}">
+      <img src="{{ url_for('static', filename='images/apuntes.png') }}" alt="Apuntes" class="image-button">
+    </a>
+    <a href="{{ url_for('lecturas') }}">
+      <img src="{{ url_for('static', filename='images/lecturas.png') }}" alt="Lecturas" class="image-button">
+    </a>
+    <a href="{{ url_for('materias') }}">
+      <img src="{{ url_for('static', filename='images/materias.png') }}" alt="Materias" class="image-button">
+    </a>
+  </div>
+
+  <div class="content">
+    <button id="uploadBtn" onclick="openModal()">
+      <img src="../static/icons/upload.svg" alt="Upload Icon">
+      Subir
+    </button>
+  </div>
+
+  <div class="latest-uploads">
+    <h2>Lo último subido</h2>
+    <div class="documents-container">
+      {% for doc in latest_documents %}
+      <div class="document">
+        <img src="data:image/png;base64,{{ doc.imagen_src }}" alt="{{ doc.titulo }}">
+        <h3>{{ doc.titulo }}</h3>
+        <p>{{ doc.descripcion }}</p>
+        <a href="{{ url_for('visualizador', titulo=doc.titulo) }}" class="upload-button">
+          Ver más
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- El Modal -->
+  <div id="uploadModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+
+        <label for="file">Archivo PDF</label>
+        <input type="file" id="file" name="file" accept="application/pdf" required>
+
+        <label for="title">Título</label>
+        <input type="text" id="title" name="title" placeholder="Título del documento" required>
+
+        <label for="author">Autor</label>
+        <input type="text" id="author" name="author" placeholder="Autor del documento" required>
+
+        <label for="description">Descripción</label>
+        <input type="text" id="description" name="description" placeholder="Descripción del documento" required>
+
+        <label for="category">Categoría</label>
+        <select id="category" name="category" required>
+          <option value="apunte">Apunte</option>
+          <option value="lectura">Lectura</option>
+          <option value="materia">Materia</option>
+        </select>
+
+        <input type="submit" value="Subir">
+      </form>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+
+</html>

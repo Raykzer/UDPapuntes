@@ -1,0 +1,162 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f0f0; /* Color de fondo para toda la página */
+}
+
+/* Estilos para el encabezado */
+.header {
+    height: 82px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d2232a;
+    color: white;
+    font-size: 16px;
+}
+
+.header img {
+    width: auto;
+    height: 50px;
+}
+
+/* Estilos para los elementos del menú */
+.menu-items-container {
+    display: flex;
+    gap: 16px;
+}
+
+.menu-item-text {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+}
+
+.menu-item-text.apuntes {
+    background-image: url("/static/icons/apuntes.svg"); /* Ruta a tu ícono de apuntes */
+}
+
+.menu-item-text.lecturas {
+    background-image: url("/static/icons/lecturas.svg"); /* Ruta a tu ícono de lecturas */
+}
+
+.menu-item-text.materias {
+    background-image: url("/static/icons/materias.svg"); /* Ruta a tu ícono de materias */
+}
+
+/* Estilos para el contenido de la página */
+.content {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.document-preview {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff; /* Fondo blanco para cada vista previa de documento */
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.document-preview img {
+    width: 320px;
+    height: 294px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.document-details {
+    flex-grow: 1;
+}
+
+.document-details h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.document-details p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+/* Estilos para el botón de eliminar */
+.delete-button {
+    background-color: #d2232a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.delete-button:hover {
+    background-color: #b11f26;
+}
+
+/* Estilos para la barra de búsqueda */
+.search-bar-container {
+    padding: 16px;
+    display: flex; /* Enables Flexbox layout */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically if needed */
+}
+
+.search-bar-title {
+    font-size: 18px;
+    color: #333;
+    margin-right: 16px;
+    padding-bottom: 15px;
+}
+
+.search-bar {
+    flex-grow: 1;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    background-color: #e0e0e0; /* Slightly darker gray for contrast */
+    font-size: 16px;
+    width: 800px; /* Adjusted maximum width */
+}
+
+.search-btn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #d2232a;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.search-btn:hover {
+    background-color: #b11f26;
+}
+.documents-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Usamos grid para crear dos columnas responsivas */
+    gap: 20px; /* Espacio entre los documentos */
+    justify-items: center; /* Centrar los items horizontalmente */
+  }
+  .fiftheen-chars {
+    width: 15ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

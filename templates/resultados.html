@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados de Búsqueda</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/resultados.css') }}">
+</head>
+<body>
+
+<div class="header">
+    <a href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='icons/Logo.png') }}" alt="UDP" style="width: auto; height: 50px; display: inline-block;">
+    </a>
+    <div class="menu-items-container">
+        <a href="{{ url_for('apuntes') }}" class="menu-item-text apuntes" style="text-decoration: none;">Apuntes</a>
+        <a href="{{ url_for('lecturas') }}" class="menu-item-text lecturas" style="text-decoration: none;">Lecturas</a>
+        <a href="{{ url_for('materias') }}" class="menu-item-text materias" style="text-decoration: none;">Materias</a>
+    </div>
+    <!-- Agregar botón de logout a la derecha -->
+    <a href='/logout' class="logout-btn">
+        <img src="{{ url_for('static', filename='icons/logout.svg') }}" alt="Logout" class="logout-icon">
+    </a>
+</div>
+
+<div class="search-bar-container">
+    <form action="{{ url_for('buscar') }}" method="POST">
+        <div class="search-bar-title">¿Qué estás buscando?</div>
+        <input type="text" class="search-bar" name="termino_busqueda" placeholder="Buscar...">
+    </form>
+</div>
+
+<div class="content">
+    {% if books %}
+        {% for book in books %}
+        <div class="pdf-item">
+            <a href="{{ url_for('visualizador', titulo=book['titulo']) }}">
+                <img src="data:image/png;base64,{{ book['imagen_src'] }}" alt="{{ book['titulo'] }}">
+            </a>
+            <div class="pdf-item-details">
+                <h3>{{ book['titulo'] }}</h3>
+                <p>{{ book['descripcion'] }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No se encontraron resultados para la búsqueda.</p>
+    {% endif %}
+</div>
+
+</body>
+</html>

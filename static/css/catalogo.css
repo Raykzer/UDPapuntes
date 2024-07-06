@@ -1,0 +1,47 @@
+
+/* Styles for the manga catalog */
+#highlightContent {
+    width: 80%;
+    margin: auto;
+}
+
+#highlightContent table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#highlightContent table th,
+#highlightContent table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#highlightContent table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #333;
+    color: white;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+#catalogo-container{
+    flex-grow: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 11px
+}
+#filter-container{
+    display: flex;
+    justify-content: space-around;
+}
+#search-form{
+    display: flex;
+    align-items: center;
+}

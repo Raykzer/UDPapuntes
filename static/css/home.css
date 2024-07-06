@@ -1,0 +1,325 @@
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header/Logo Title */
+.header {
+  height: 82px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  background: #d2232a;
+  color: white;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  justify-content: space-between; /* Asegurar que los elementos se distribuyan correctamente */
+}
+
+.header a {
+  display: flex;
+  align-items: center;
+}
+
+.header img {
+  width: 150px;
+  height: 50px;
+}
+
+/* Menu Items */
+.menu-items-container {
+  display: flex;
+  gap: 16px;
+  flex-grow: 1; /* Asegurar que ocupe todo el espacio disponible */
+  justify-content: center; /* Centrar los elementos del menú */
+}
+
+/* Estilos para el botón de logout */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.logout-btn:hover .logout-icon {
+  filter: invert(10%); /* Sombra más oscura al pasar el cursor */
+}
+
+/* Search Bar */
+.search-bar-container {
+  padding: 16px;
+  display: flex; /* Enables Flexbox layout */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically if needed */
+}
+
+.search-bar-title {
+  margin-right: 16px;
+  font-size: 18px;
+  color: #333;
+  padding-bottom: 15px;
+}
+
+.search-bar {
+  flex-grow: 1;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  background-color: #e0e0e0; /* Slightly darker gray for contrast */
+  font-size: 16px;
+  width: 800px; /* Adjusted maximum width */
+}
+
+.search-btn {
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  background-color: #d2232a; /* Same color as header */
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px; /* Add some space between input and button */
+}
+
+.search-btn:hover {
+  background-color: #b11f26; /* Darker shade on hover */
+}
+
+/* Botones de imagen */
+.image-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #fff; /* Color de fondo para distinguir la sección */
+  height: 240px;
+}
+
+.image-button {
+  width: 380px;
+  height: 171px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.image-button:hover {
+  transform: scale(1.1);
+}
+
+/* Contenido de la página */
+.content {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 420px; /* Altura ajustada para la barra de búsqueda y botones */
+}
+
+/* Estilos para los elementos del menú */
+.menu-items-container {
+  display: flex;
+  gap: 16px;
+}
+
+.menu-item-text {
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 28px; /* Añadir un poco de relleno izquierdo para el icono */
+  background-repeat: no-repeat;
+}
+
+.menu-item-text.apuntes {
+  background-image: url("/static/icons/apuntes.svg"); /* Ajustar la ruta según la estructura de tu aplicación */
+}
+
+.menu-item-text.lecturas {
+  background-image: url("/static/icons/lecturas.svg"); /* Ajustar la ruta según la estructura de tu aplicación */
+}
+
+.menu-item-text.materias {
+  background-image: url("/static/icons/materias.svg"); /* Ajustar la ruta según la estructura de tu aplicación */
+}
+
+/* Estilos para el modal */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Quedarse en su lugar */
+  z-index: 1; /* Estar en la parte superior */
+  left: 0;
+  top: 0;
+  width: 100%; /* Ancho completo */
+  height: 100%; /* Altura completa */
+  overflow: auto; /* Habilitar desplazamiento si es necesario */
+  background-color: rgb(0, 0, 0); /* Color de fondo de respaldo */
+  background-color: rgba(0, 0, 0, 0.4); /* Negro con opacidad */
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto; /* 15% desde la parte superior y centrado */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Puede ser más o menos, dependiendo del tamaño de la pantalla */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Estilos para los campos de entrada dentro del modal */
+.modal input[type=text],
+.modal input[type=file],
+.modal select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Estilos para el botón de enviar dentro del modal */
+.modal input[type=submit] {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para el botón "Subir" */
+#uploadBtn {
+  background-color: #d2232a;
+  color: white;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none; /* Eliminar subrayado */
+  transition: background-color 0.3s;
+}
+
+#uploadBtn img {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+
+#uploadBtn:hover {
+  background-color: #a91b22;
+}
+
+
+
+/* Estilos para la sección de últimos uploads */
+.latest-uploads {
+  padding: 20px;
+  text-align: center; /* Centrar el contenido */
+}
+
+.documents-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Usamos grid para crear dos columnas responsivas */
+  gap: 20px; /* Espacio entre los documentos */
+  justify-items: center; /* Centrar los items horizontalmente */
+}
+
+.document {
+  width: 100%; /* Ajustamos el ancho de cada documento al 100% del contenedor de la cuadrícula */
+  padding: 10px;
+  text-align: center;
+  background-color: #f9f9f9; /* Color de fondo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.document img {
+  max-width: 100px; /* Tamaño máximo del icono */
+  margin-bottom: 10px;
+}
+
+.document h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.document p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Estilos para el botón "Ver más" en los documentos */
+.document a.upload-button {
+  background-color: #d2232a;
+  color: white;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s;
+  display: inline-block;
+  margin-top: 10px;
+  cursor: pointer; /* Agregar cursor pointer */
+}
+
+.document a.upload-button:hover {
+  background-color: #a91b22;
+}
+
+
+/* Ajustes para el botón Subir */
+#uploadBtn {
+  margin-top: -325px; /* Espacio arriba del botón Subir */
+  position: relative; /* Mantener el flujo del documento */
+  z-index: 1; /* Asegurar que esté por encima de otros elementos */
+}
+
+/* Ajustes para la sección de últimos subidos */
+.latest-uploads {
+  margin-top: -350px; /* Espacio arriba de la sección de últimos subidos */
+  padding-bottom: 20px; /* Espacio abajo de la sección de últimos subidos */
+}
+
+/* Ajustes adicionales para asegurar visibilidad en una pantalla */
+body {
+  padding-bottom: 100px; /* Espacio abajo del cuerpo para asegurar que el contenido no se corte */
+}

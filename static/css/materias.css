@@ -1,0 +1,154 @@
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header/Logo Title */
+.header {
+  height: 82px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  background: #d2232a;
+  color: white;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  justify-content: space-between; /* Asegurar que los elementos se distribuyan correctamente */
+}
+
+.header a {
+  display: flex;
+  align-items: center;
+}
+
+.header img {
+  width: 150px;
+  height: 50px;
+}
+
+/* Menu Items */
+.menu-items-container {
+  display: flex;
+  gap: 16px;
+  flex-grow: 1; /* Asegurar que ocupe todo el espacio disponible */
+  justify-content: center; /* Centrar los elementos del menú */
+}
+
+/* Estilos para el botón de logout */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.logout-btn:hover .logout-icon {
+  filter: invert(10%); /* Sombra más oscura al pasar el cursor */
+}
+  
+/* Search Bar */
+.search-bar-container {
+  padding: 16px;
+  display: flex; /* Enables Flexbox layout */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically if needed */
+}
+
+.search-bar-title {
+  margin-right: 16px;
+  font-size: 18px;
+  color: #333;
+  padding-bottom: 15px;
+}
+
+.search-bar {
+  flex-grow: 1;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  background-color: #e0e0e0; /* Slightly darker gray for contrast */
+  font-size: 16px;
+  width: 800px; /* Adjusted maximum width */
+}
+  
+  /* Page Content */
+  .content {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+  }
+  
+  .pdf-item {
+    display: flex;
+    align-items: center; /* Align items horizontally */
+    width: calc(50% - 10px); /* Adjusted width */
+    padding: 20px; /* Increased padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pdf-item img {
+    width: 120px; /* Increased width */
+    height: 120px; /* Increased height */
+    margin-right: 20px; /* Add margin to separate image from text */
+  }
+  
+  .pdf-item a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .pdf-item .pdf-item-details {
+    flex-grow: 1;
+  }
+  
+  .pdf-item .pdf-item-details h3 {
+    margin: 0;
+    font-size: 18px; /* Adjusted font size */
+  }
+  
+  .pdf-item .pdf-item-details p {
+    margin: 0;
+    font-size: 14px; /* Adjusted font size */
+  }
+  
+  /* Styles for the menu items */
+  .menu-items-container {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .menu-item-text {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 28px; /* Add some left padding for icon */
+    background-repeat: no-repeat;
+  }
+  
+.menu-item-text.apuntes {
+    background-image: url("/static/icons/apuntes.svg"); /* Ajusta la ruta según la estructura de tu aplicación */
+}
+
+.menu-item-text.lecturas {
+    background-image: url("/static/icons/lecturas.svg"); /* Ajusta la ruta según la estructura de tu aplicación */
+}
+
+.menu-item-text.materias {
+    background-image: url("/static/icons/materias.svg"); /* Ajusta la ruta según la estructura de tu aplicación */
+}

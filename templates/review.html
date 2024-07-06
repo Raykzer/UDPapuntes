@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Revisión de Documentos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/review.css') }}">
+</head>
+<body>
+
+<div class="header">
+    <a href="{{ url_for('review') }}">
+        <img src="{{ url_for('static', filename='icons/Logo.png') }}" alt="UDP" style="width: auto; height: 50px; display: inline-block;">
+    </a>
+
+    <!-- Agregar botón de logout a la derecha -->
+    <a href='/logout' class="logout-btn">
+        <img src="{{ url_for('static', filename='icons/logout.svg') }}" alt="Logout" class="logout-icon">
+    </a>
+</div>
+
+<div class="search-bar-container">
+    <form action="{{ url_for('buscar_A') }}" method="POST">
+        <div class="search-bar-title">¿Qué estás buscando?</div>
+        <input type="text" class="search-bar" name="termino_busqueda" placeholder="Buscar...">
+        <button type="submit" class="search-btn">Buscar</button>
+    </form>
+</div>
+
+<div class="content">
+    {% for document in documents %}
+    <div class="row align-items-center">
+        <div class="col">
+            <div class="document-preview">
+                <a href="{{ url_for('visualizador_A', titulo=document['titulo']) }}">
+                    <img src="data:image/png;base64,{{ document['imagen_src'] }}" alt="{{ document['titulo'] }}">
+                </a>
+                <div class="document-details">
+                    <h3>{{ document['titulo'] }}</h3>
+                    <p class="fiftheen-chars">{{ document['descripcion'] }}</p>
+                    <p>Likes: {{ document['likes'] | length }}</p>
+                    <p>Dislikes: {{ document['dislikes'] | length }}</p>
+                    <form action="{{ url_for('delete_document', titulo=document['titulo']) }}" method="POST">
+                        <button type="submit" class="delete-button">Borrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <hr> <!-- Línea divisoria opcional entre documentos -->
+    {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>

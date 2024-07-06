@@ -1,0 +1,207 @@
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header/Logo Title */
+.header {
+  height: 82px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  background: #d2232a;
+  color: white;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  justify-content: space-between; /* Asegurar que los elementos se distribuyan correctamente */
+}
+
+.header a {
+  display: flex;
+  align-items: center;
+}
+
+.header img {
+  width: 150px;
+  height: 50px;
+}
+
+/* Menu Items */
+.menu-items-container {
+  display: flex;
+  gap: 16px;
+  flex-grow: 1; /* Asegurar que ocupe todo el espacio disponible */
+  justify-content: center; /* Centrar los elementos del menú */
+}
+
+/* Estilos para el botón de logout */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.logout-btn:hover .logout-icon {
+  filter: invert(10%); /* Sombra más oscura al pasar el cursor */
+}
+  
+/* Search Bar */
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background-color: #f0f0f0;
+}
+
+.search-bar-title {
+  margin-right: 16px;
+  font-size: 18px;
+  color: #333;
+}
+
+.search-bar {
+  flex-grow: 1;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  background-color: #e0e0e0; /* Slightly darker gray for contrast */
+  font-size: 16px;
+  width: 630%; /* Adjusted maximum width */
+}
+  
+/* Page Content */
+.content {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Adjusted alignment */
+  height: calc(100vh - 82px); /* Adjusted height */
+}
+
+/* Styles for the menu items */
+.menu-items-container {
+  display: flex;
+  gap: 16px;
+}
+
+.menu-item-text {
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 28px; /* Add some left padding for icon */
+  background-repeat: no-repeat;
+}
+
+.menu-item-text.apuntes {
+  background-image: url("/static/icons/apuntes.svg"); /* Ajusta la ruta según la estructura de tu aplicación */
+}
+
+.menu-item-text.lecturas {
+  background-image: url("/static/icons/lecturas.svg"); /* Ajusta la ruta según la estructura de tu aplicación */
+}
+
+.menu-item-text.materias {
+  background-image: url("/static/icons/materias.svg"); /* Ajusta la ruta según la estructura de tu aplicación */
+}
+  
+/* Additional styles for new elements */
+.pdf-preview {
+  flex: 1; /* Take up available space */
+}
+
+.book-info {
+  flex: 1; /* Take up available space */
+  margin-left: 20px; /* Add space between preview and info */
+}
+
+.description {
+  margin-top: 20px; /* Add space between author and description */
+}
+
+/* Adjust size of PDF preview image */
+.pdf-preview img {
+  max-width: 400px; /* Set maximum width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Button styles */
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #d2232a;
+  color: white;
+  font-family: Poppins;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+/* Back button styles */
+.back-button-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px; /* Adjusted position */
+}
+
+.back-button {
+  padding: 12px 30px; /* Adjusted padding */
+  border: none;
+  border-radius: 20px;
+  background-color: #d2232a;
+  color: white;
+  font-family: Poppins;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.back-button img {
+  margin-right: 10px;
+}
+
+/* Estilos para los botones de Me gusta y No me gusta */
+.like-dislike-buttons {
+  display: flex;
+  gap: 20px; /* Ajusta el espacio entre los botones */
+  margin-top: 20px;
+}
+
+.like-button, .dislike-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #d2232a; /* Color rojo */
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  color: white; /* Color del texto */
+  font-size: 16px; /* Tamaño del texto */
+  font-weight: bold; /* Peso del texto */
+}
+
+.like-button img, .dislike-button img {
+  width: 30px;
+  height: auto;
+  margin-right: 8px; /* Espacio entre el icono y el texto */
+}
+
+.like-button:hover, .dislike-button:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
